@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/styles.css' %}">
+
+{% block content %}
+    <h2 class="text-center mt-5">Artículos del blog</h2>
+    <div class="d-flex flex-wrap justify-content-around mt-5">
+        {% for article in articles %}
+            <div class="card mb-3 article-card" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <a href="{% url 'article_detail' pk=article.pk %}" class="text-decoration-none">
+                        <h4 class="card-title text-dark">{{ article.title }}</h4>
+                        <p class="card-text text-dark">Escrito por: {{ article.author }}</p>
+                        <p class="card-text text-dark">Fecha de creación: {{ article.createDate }}</p>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    <div class="text-center mt-4 mb-3">
+        <a href="{% url 'article_create' %}" class="btn btn-dark mb-3">Crear nuevo artículo</a>
+    </div>
+
+    <style>
+        .article-card:hover {
+            opacity: 0.5;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <h2 class="text-center mt-5 text-dark">Comentario de {{ comment.commentName }}</h2>
+  <p class="text-center">{{ comment.comment }}</p>
+
+  <div class="d-flex justify-content-center mt-4">
+    <a href="{% url 'article_detail' pk=comment.article.pk %}" class="btn btn-dark">Volver al detalle del artículo</a>
+  </div>
+{% endblock %}

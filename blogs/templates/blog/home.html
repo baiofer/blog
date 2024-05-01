@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h2 class="text-center mt-5">Mi BLOG</h2>
+    <p class="text-center mt-4">Blog de Fernando</p>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'article_list' %}" class="btn btn-dark">Lista de artículos</a>
+    </div>
+  
+{% endblock %}

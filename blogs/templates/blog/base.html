@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <!-- Aquí puedes añadir tus hojas de estilo CSS, scripts de JavaScript, etc. -->
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <header>
+        <!-- Aquí puedes añadir el encabezado de tu página, como un menú de navegación -->
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- El contenido de las plantillas que extiendan base.html irá aquí -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Aquí puedes añadir el pie de página de tu sitio -->
+    </footer>
+</body>
+</html>

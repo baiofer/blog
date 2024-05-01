@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: red;
+}
+
+ul {
+    list-style-type: none;
+    background-color: aqua;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.title h2 {
+    color: red;
+    margin-left: 50px;
+}

@@ -1,0 +1,40 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <h2 class="text-center mt-5 text-dark">{{ article.title }}</h2>
+  <p class="text-center">{{ article.comment }}</p>
+  <p class="text-center">Escrito por: {{ article.author }}</p>
+  <p class="text-center">Fecha de creación: {{ article.createDate }}</p>
+
+  <div class="d-flex justify-content-center mt-4">
+    <a href="{% url 'article_list' %}" class="btn btn-dark">Volver a la lista de artículos</a>
+  </div>
+
+  <h3 class="text-center mt-5">Comentarios</h3>
+  <div class="d-flex flex-wrap justify-content-around mt-5">
+    {% for comment in comments %}
+      <div class="card mb-3" style="width: 18rem;">
+        <div class="card-body text-center">
+          <a href="{% url 'comment_detail' pk=comment.pk %}" class="text-decoration-none">
+            <p class="card-text text-dark">{{ comment.comment }}</p>
+            <p class="card-text text-dark">Escrito por: {{ comment.commentName }}</p>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <h3 class="text-center mt-5">Añadir un comentario</h3>
+  <form method="post" class="text-center">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+        {{ field }}
+      </div>
+    {% endfor %}
+    <div class="d-flex justify-content-center mt-4">
+      <button type="submit" class="btn btn-dark">Guardar</button>
+    </div>
+  </form>
+{% endblock %}
